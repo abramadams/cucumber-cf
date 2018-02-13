@@ -7,8 +7,6 @@ To run tests, you'll need [CommandBox](https://www.ortussolutions.com/products/c
 
 Then run `box install` once to install the dependencies (TestBox is the only one currently).
 
-To install in your own project, simply drop the `/utils/Cucumber.cfc` file into your project and extend it from the cfc you'll use to define the steps.
-
 Then start a CFML server via CommandBox:
 
 `box start`
@@ -24,6 +22,9 @@ If you get any failures, you can run this with more verbose, but still compact o
 `box testbox run reporter=mintext`
 
 # Using Cucumber-cf in your project
+
+To install in your own project, simply drop the `/utils/Cucumber.cfc` file into your project and extend it from the cfc you'll use to define the steps.
+
 To use in the project, extend the Cucumber.cfc from your test "spec" cfc: (see `/tests/specs/cucumberRunner.cfc` for an example).  Then define the `stepDefinitions` to handle the test scenarios in your feature files.
 ```javascript
 component accessors = "true" extends = "tests.utils.Cucumber" {
@@ -92,7 +93,7 @@ Where `$world.result` was defined in a "WHEN" step definition.
 ## runFeatures
 The runFeatures function kicks off the entire process.  It accepts the following arguments:
 
- * __featurePath__ - Abbsolute path of feature files to run, or an array of feature file paths to run.
+ * __featurePath__ - Absolute path of feature files to run, or an array of feature file paths to run.
  * __stepDefinitions__ - These are the actuall regex:function steps that will be used to match steps in the scenario and run the corresponding function to complete the step
  * __world__ - The initial state to be used for each scenario.  Each scenario will affect it's private world state and expose to the runner via $world variable.
  * __beforeScenario__ - Function to be run before each scenario
