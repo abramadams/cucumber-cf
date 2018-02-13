@@ -1,0 +1,15 @@
+{
+    "openBrowserURL":"http://localhost:8800/tests/runner.cfm",
+    "app":{
+        "cfengine":"lucee@5"
+    },
+    "web":{
+        "http":{
+            "port":"8800"
+        },
+        "rewrites":{
+            "enable":true
+        }
+    },
+    "openbrowser":"true"
+}
