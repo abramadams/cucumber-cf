@@ -24,11 +24,11 @@ If you get any failures, you can run this with more verbose, but still compact o
 `box testbox run reporter=mintext`
 
 # Using Cucumber-cf in your project
-To use in the project, extend the Cucumber.cfc from your test "spec" cfc: (see `/tests/specs/cucumberRunner.cfc` for an example).  Then define the `stepDefinitions` to handle the test scenarios in your feature files.  I typically do this in an init method:
+To use in the project, extend the Cucumber.cfc from your test "spec" cfc: (see `/tests/specs/cucumberRunner.cfc` for an example).  Then define the `stepDefinitions` to handle the test scenarios in your feature files.
 ```javascript
 component accessors = "true" extends = "tests.utils.Cucumber" {
-    init();
-    function init() {
+
+    function run() {
         // Step handlers (this is where tests happen)
         this.setStepDefinitions({
             // Sample "GIVEN"
@@ -47,9 +47,7 @@ component accessors = "true" extends = "tests.utils.Cucumber" {
                 expect($world.result).toBe(arg1);
             }
         });
-
-    }
-    public function run(){
+        // Run all features
         runFeatures(
             featurePath = expandPath("/tests/features/"),
             stepDefinitions = stepDefinitions,

@@ -1,6 +1,5 @@
 component accessors = "true" extends = "tests.utils.Cucumber" {
-    init();
-    function init() {
+    public function run(){
         var registerService = new services.cashRegister();
 
         // Step handlers (this is where tests happen)
@@ -44,9 +43,6 @@ component accessors = "true" extends = "tests.utils.Cucumber" {
 
             }
         });
-
-    }
-    public function run(){
         runFeatures(
             featurePath = expandPath("/tests/features/"),
             stepDefinitions = stepDefinitions,
