@@ -95,7 +95,7 @@ component accessors="true" extends = "testbox.system.BaseSpec" {
             if (matched.size() == 1) {
 
                 var stepAction = stepDefinitions[matched.keyList()];
-                var stepTitle = stepType & " " & step.reMatch(matched.keyList())[1];
+                var stepTitle = stepType & " " & step.reMatchNoCase(matched.keyList())[1];
                 // Pull out the args from the step description based on the regex
                 var stepArgs = step.reReplaceNoCase(
                                     matched.keyList(),
