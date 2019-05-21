@@ -1,6 +1,6 @@
 component{
     function makeTransaction( price, paid ){
-        if( price >= paid ){
+        if( price > paid ){
             return "You don't have enough";
         }
         return paid - price;
